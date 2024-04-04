@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  mySQL: 
+    image: mysql:latest
+    restart: always
+    container_name: TheDrinkCode_MYSQL_DB
+    environment:
+      - MYSQL_DATABASE=TheDrinkCodeDB
+      - MYSQL_ROOT_PASSWORD=TheDrinkCode
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
